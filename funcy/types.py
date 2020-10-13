@@ -24,3 +24,5 @@ is_seqcont = isa(list, tuple, Iterator, range)
 
 iterable = isa(Iterable)
 is_iter = isa(Iterator)
+
+equal = lambda a, b: a == b
