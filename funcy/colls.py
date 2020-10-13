@@ -164,9 +164,9 @@ def select(pred, coll):
     """Same as filter but preserves coll type."""
     return _factory(coll)(xfilter(pred, iteritems(coll)))
 
-def select_keys(pred, coll):
-    """Select part of the collection with keys passing pred."""
-    pred = make_pred(pred)
+def select_keys(keys, coll):
+    """Select part of the collection with specific keys."""
+    pred = make_pred(lambda k: k in keys)
     return select(lambda pair: pred(pair[0]), coll)
 
 def select_values(pred, coll):
