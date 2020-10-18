@@ -1,9 +1,9 @@
 from .compat import range, Mapping, Set, Sequence, Iterator, Iterable
-
+from .funcs import compose
 
 __all__ = ('isa', 'is_mapping', 'is_set', 'is_seq', 'is_list', 'is_tuple',
            'is_seqcoll', 'is_seqcont',
-           'iterable', 'is_iter')
+           'iterable', 'is_iter', 'is_empty', '_not')
 
 
 def isa(*types):
@@ -26,3 +26,6 @@ iterable = isa(Iterable)
 is_iter = isa(Iterator)
 
 equal = lambda a, b: a == b
+
+_not = lambda x: not x
+is_empty = compose(_not, bool)
